@@ -20,10 +20,16 @@ public class GuideTouristiqueResource {
     // @return le lieu demandé
 
     @GET
-    @Path("lieu/{ville_ou_pays}")
+    @Path("lieu/{ville_ou_pays}/{nb}")
     @Produces(MediaType.APPLICATION_JSON)
     public String endroitsDeVisite(
-            @PathParam("ville_ou_pays") String villeOuPays) {
+            @PathParam("ville_ou_pays") String villeOuPays,
+            @PathParam("nb") int nb) {
+
+        String prompt = """
+    Donne exactement %d endroits à visiter pour %s.
+    Respecte strictement le nombre demandé.
+    """.formatted(nb, villeOuPays);
 
 //        return villeOuPays;
 //        return new String[]{villeOuPays};

@@ -8,7 +8,7 @@ public interface GuideTouristique {
     @SystemMessage("""
                Tu es un guide touristique.
             
-                        Donne les 2 principaux endroits à visiter dans le lieu demandé
+                        Donne le nombre demandé d'endroits à visiter
                         ainsi que le prix moyen d'un repas dans la devise locale.
                         
                         N'utilise pas Markdown
@@ -30,5 +30,6 @@ public interface GuideTouristique {
                         }
                         ""\")
             """)
-    String guide(@UserMessage String lieu);
+//    String guide(@UserMessage String lieu);
+    String guide(@UserMessage String prompt);
 }
